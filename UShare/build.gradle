@@ -34,7 +34,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.3.0'
@@ -43,16 +42,30 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    //新浪官方依赖库
+
+    implementation 'com.umeng.umsdk:common:9.4.0'//必选
+    implementation 'com.umeng.umsdk:asms:1.2.3'//必选
+
+    implementation 'com.umeng.umsdk:link:1.1.0'//集成U-Link，可选，如要统计分享回流次数和分享新增用户指标则必选
+
+    implementation 'com.umeng.umsdk:share-core:7.1.5'//分享核心库，必选
+    implementation 'com.umeng.umsdk:share-board:7.1.5'//分享面板功能，可选
+
+    implementation 'com.umeng.umsdk:share-wx:7.1.5' //微信完整版
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0'//微信官方依赖库，必选
+
+    implementation 'com.umeng.umsdk:share-qq:7.1.5'//QQ完整版
+    implementation 'com.tencent.tauth:qqopensdk:3.53.0'//QQ官方依赖库，必选
+    implementation 'com.squareup.okhttp3:okhttp:3.12.12'//QQ SDK在3.53.0版本及以上时需要集成okhttp官方依赖库，必选
+
+    implementation 'com.umeng.umsdk:share-sina:7.1.5'//新浪微博完整版
+//    implementation 'com.sina.weibo.sdk:core:10.10.0:openDefaultRelease@aar'
     implementation(name: 'openDefault-10.10.0', ext: 'aar')
-
-    //QQ官方依赖库
-    implementation 'com.tencent.tauth:qqopensdk:3.53.0'
-    //微信官方依赖库
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0'
-
-    //钉钉官方sdk
-    implementation "com.alibaba.android:ddsharesdk:1.2.0@jar"
+    //新浪微博官方SDK依赖库，必选，如在线集成失败请本地下载离线包https://counsel.umeng.com/api/activity/download?fileName=activity/67/openDefault-10.10.0.aar
+    implementation 'com.umeng.umsdk:share-dingding:7.1.5'//钉钉完整版
+    implementation "com.alibaba.android:ddsharesdk:1.2.0@jar"//钉钉官方依赖库，必选
+    implementation 'com.umeng.umsdk:share-alipay:7.1.5'//支付宝完整版
+    implementation(name: 'alipaysdk-15.8.03.210428205839', ext: 'aar')//支付宝授权
 
     implementation "com.github.duoluo9:BaseLibrary:1.1.6"
 }
